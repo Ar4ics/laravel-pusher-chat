@@ -22,6 +22,7 @@ Say what the step will be
 
 ```
 git clone https://github.com/Ar4ics/laravel-pusher-chat.git
+cd laravel-pusher-chat
 composer install
 npm install
 php artisan key:generate
