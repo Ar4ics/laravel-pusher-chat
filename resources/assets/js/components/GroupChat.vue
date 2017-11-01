@@ -47,20 +47,28 @@
 
 <script>
 export default {
-    props: ['group'],
+    props: ['initialGroup'],
 
     data () {
         return {
+            group: {
+                id: 0,
+                name: "",
+                users_count: 0
+            },
             conversations: [],
             message: '',
-            group_id: this.group.id
+            group_id: this.initialGroup.id
         }
     },
 
     mounted () {
         console.log('group mounted!');
-        this.conversations = this.group.conversations ? this.group.conversations : [];
+        this.group = this.initialGroup;
+        this.conversations = this.initialGroup.conversations ? this.initialGroup.conversations : [];
         this.listenForNewMessage();
+
+
     },
 
     methods: {
@@ -73,6 +81,11 @@ export default {
         },
 
         leftGroup () {
+            axios.post('/groups/' + this.group.id + '/leave')
+                .then((response) => {
+                    console.log(response);
+                });
+            Bus.$emit('leftGroup', this.group.id);
 
         },
 

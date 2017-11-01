@@ -7,7 +7,12 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+import Vue           from 'vue'
+import Notifications from 'vue-notification'
+
+Vue.use(Notifications);
+
+window.Vue = Vue;
 window.Bus = new Vue();
 
 /**

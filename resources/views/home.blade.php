@@ -6,6 +6,7 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <notifications position="top center" group="foo"></notifications>
         <div class="col-sm-6">
             <create-group :initial-users="{{ $users }}"></create-group>
         </div>

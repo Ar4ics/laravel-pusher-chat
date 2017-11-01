@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('groups', 'GroupController');
+Route::post('groups/{id}/leave', 'GroupController@leaveGroup');
 Route::resource('conversations', 'ConversationController');

@@ -36,6 +36,7 @@ export default {
         createGroup () {
             axios.post('/groups', { name: this.name, users: this.users })
                 .then((response) => {
+                console.log(response.data);
                     this.name = '';
                     this.users = [];
                     $('.selectpicker').selectpicker('deselectAll');
